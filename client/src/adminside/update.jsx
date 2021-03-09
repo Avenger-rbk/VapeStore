@@ -8,6 +8,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import axios from "axios";
+import Swal from 'sweetalert2'
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -37,9 +38,14 @@ export default function BasicTextFields(props) {
     axios
       .put(`/api/vapeStore/update/${props.product._id}`, state.uptodate)
       .then((result) => {
-        alert("result");
+        Swal.fire({
+          position: 'middle',
+          icon: 'success',
+          title: 'Your updates has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {location.reload()})
       });
-    window.location.reload();
   };
   const handleChange = (e) => {
     switch (e.target.name) {
@@ -99,7 +105,6 @@ export default function BasicTextFields(props) {
         });
         break;
     }
-    console.log(uptodate);
   };
   return (
     <div className="update-container">
