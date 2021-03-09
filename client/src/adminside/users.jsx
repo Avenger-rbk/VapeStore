@@ -98,13 +98,13 @@ componentDidMount()
           User
         </Typography>
         <Typography variant="h5" component="h2">
-          {user.name}
+          Username : {user.name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-        {user.lastName}
+         Last Name : {user.lastlastName}
         </Typography>
         <Typography variant="body2" component="p">
-          {user.email}
+          Email : {user.email}
           <br />
           
         </Typography>

@@ -88,7 +88,7 @@ var arrOfArray = JSON.parse(localStorage.getItem("order"))
       (email = e[3]), (imageUrl = e[2]), (title = e[0]), (prise = e[1]);
     });
     return (
-      <div className="card">
+      <div className="orders">
         {list}
         <button onClick={handleClick}>confirm</button>
       </div>
