@@ -101,10 +101,10 @@ componentDidMount()
           Username : {user.name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-         Last Name : {user.lastlastName}
+        Email : {user.email}
         </Typography>
         <Typography variant="body2" component="p">
-          Email : {user.email}
+          
           <br />
           
         </Typography>

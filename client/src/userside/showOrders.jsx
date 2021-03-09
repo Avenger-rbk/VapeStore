@@ -33,7 +33,7 @@ export default function Orders(props) {
   var imageUrl;
   var prise;
   var order = JSON.parse(localStorage.getItem("order"));
-
+  var tottale = 0
   const [state, setState] = useState({
     email: email,
     imageUrl: imageUrl,
@@ -82,7 +82,26 @@ var arrOfArray = JSON.parse(localStorage.getItem("order"))
     );
   } else {
     order.map((e, i) => {
-      list.push(<li key={i}>{e}</li>);
+      var a = e[1] * 1 
+      tottale = tottale + a 
+      list.push(      <div key = {i}>
+        <Card className={classes.root}>
+          <CardActionArea>
+            <CardMedia className={classes.media} image={e[2]} id="prodImage" title="Contemplative Reptile" />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                { e[0]}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {e[1]}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+          
+          </CardActions>
+        </Card></div>
+      );
       console.log(order);
   
       (email = e[3]), (imageUrl = e[2]), (title = e[0]), (prise = e[1]);
@@ -90,35 +109,18 @@ var arrOfArray = JSON.parse(localStorage.getItem("order"))
     return (
       <div className="orders">
         {list}
-        <button onClick={handleClick}>confirm</button>
+       Total price {tottale} £ 
+        
+        <Button 
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={handleClick}>confirm</Button>
       </div>
     );
   }
 }
 
-// {props.data.map((product, i) => {
-//     return (
-//       <div key = {i}>
-//       <Card className={classes.root}>
-//         <CardActionArea>
-//           <CardMedia className={classes.media} image={product.imageUrl} id="prodImage" title="Contemplative Reptile" />
-//           <CardContent>
-//             <Typography gutterBottom variant="h5" component="h2">
-//               {product.title}
-//             </Typography>
-//             <Typography variant="body2" color="textSecondary" component="p">
-//               {product.description}
-//             </Typography>
-//           </CardContent>
-//         </CardActionArea>
-//         <CardActions>
-//           <Button size="small" color="primary" >
-//             more details
-//           </Button>
-//            <Button size="small" color="primary" onClick={handleClick }>
-//            Confirme order
-//           </Button>
-//         </CardActions>
-//       </Card></div>
-//     );
-//   })}
+
+   
+

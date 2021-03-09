@@ -40,7 +40,7 @@ export default function Prodetail(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          {props.product.prise}
+          {props.product.prise} £
         </Button>
         <Button size="small" color="primary" onClick={()=>props.changeView("signin")}>
           Order now

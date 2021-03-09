@@ -43,6 +43,7 @@
     "mongoose": "^5.11.18",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-material-ui-carousel": "^2.2.1",
     "sweetalert2": "^10.15.5"
   }
 }

@@ -130,7 +130,7 @@ fetchData();
       })
       .catch((err) => {
         console.log(err);
-      });result
+      })
     window.location.reload();
   };
  
@@ -139,112 +139,85 @@ fetchData();
     <div className={classes.root} className="admincard">
        
       {state.data.map((product, i) => {
-        return (
-          <div key={i}>
-            <CssBaseline />
-            {/* <AppBar
-              position="fixed"
-              className={clsx(classes.appBar, {
-                [classes.appBarShift]: open,
-              })}
-            >
-              <Toolbar>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={handleDrawerOpen}
-                  edge="start"
-                  className={clsx(classes.menuButton, open && classes.hide)}
-                ></IconButton>
-                <Typography variant="h6" noWrap>
-                  Vape Store
+        {if(product){ return <div key={i}>
+           
+        <CssBaseline />
+        <Drawer
+          className={classes.drawer}
+          variant="persistent"
+          anchor="left"
+          open={open}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction}
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
+            <ListItem >
+              <ListItemIcon>
+                <Button size="small" color="primary" onClick={()=>props.changeView("create")}>
+                  Add
+                </Button>
+                <Button size="small" color="primary" onClick={()=>props.changeView("order")}>
+                  product
+                </Button>
+                <Button size="small" color="primary">
+                  Stock
+                </Button>
+              </ListItemIcon>
+            </ListItem>
+          </List>
+          <Divider />
+        </Drawer>
+        <main
+          className={clsx(classes.content, {
+            [classes.contentShift]: open,
+          })}
+        >
+          <div className={classes.drawerHeader} />
+          <div className={classes.toolbar} />
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={product.imageUrl}
+                id="prodImage"
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {product.title}
+                  
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                >
+                  {product.email}
                 </Typography>
                 <Button
-                  className="logoutbtn"
-                  color="inherit"
-                  onClick={() => logout()}
+                  size="small"
+                  color="primary"
+                  onClick={() => {
+                    handelDelete(product);
+                  }}
                 >
-                  Logout
+                  Done
                 </Button>
-              </Toolbar>
-            </AppBar> */}
-
-            <Drawer
-              className={classes.drawer}
-              variant="persistent"
-              anchor="left"
-              open={open}
-              classes={{
-                paper: classes.drawerPaper,
-              }}
-            >
-              <div className={classes.drawerHeader}>
-                <IconButton onClick={handleDrawerClose}>
-                  {theme.direction}
-                </IconButton>
-              </div>
-              <Divider />
-              <List>
-                <ListItem >
-                  <ListItemIcon>
-                    <Button size="small" color="primary" onClick={()=>props.changeView("create")}>
-                      Add
-                    </Button>
-                    <Button size="small" color="primary" onClick={()=>props.changeView("order")}>
-                      product
-                    </Button>
-                    <Button size="small" color="primary">
-                      Stock
-                    </Button>
-                  </ListItemIcon>
-                </ListItem>
-              </List>
-              <Divider />
-        
-            </Drawer>
-            <main
-              className={clsx(classes.content, {
-                [classes.contentShift]: open,
-              })}
-            >
-              <div className={classes.drawerHeader} />
-              <div className={classes.toolbar} />
-              <Card className={classes.root}>
-                <CardActionArea>
-                  <CardMedia
-                    className={classes.media}
-                    image={product.imageUrl}
-                    id="prodImage"
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {product.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      {product.email}
-                    </Typography>
-                    <Button
-                      size="small"
-                      color="primary"
-                      onClick={() => {
-                        handelDelete(product);
-                      }}
-                    >
-                      Done
-                    </Button>
-                   
-                  </CardContent>
-                </CardActionArea>
-                <CardActions></CardActions>
-              </Card>
-            </main>
-          </div>
-        );
+               
+              </CardContent>
+            </CardActionArea>
+            <CardActions></CardActions>
+          </Card>
+        </main>
+      </div>}}
+      
       })}
     </div>
   );
