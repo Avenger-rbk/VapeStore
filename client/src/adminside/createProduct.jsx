@@ -18,7 +18,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Avangers
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -65,7 +65,7 @@ export default function SignUp() {
               imageUrl: e.target.value,
               title: state.uptodate.title,
               stock: state.uptodate.stock,
-              description: state.uptodate.value,
+              description: state.uptodate.description,
               prise: state.uptodate.prise
             },
           });
@@ -76,7 +76,7 @@ export default function SignUp() {
               imageUrl: state.uptodate.imageUrl,
               title: e.target.value,
               stock: state.uptodate.stock,
-              description: state.uptodate.value,
+              description: state.uptodate.description,
               prise: state.uptodate.prise
             },
           });
@@ -87,7 +87,7 @@ export default function SignUp() {
               imageUrl: state.uptodate.imageUrl,
               title: state.uptodate.title,
               stock: e.target.value,
-              description: state.uptodate.value,
+              description: state.uptodate.description,
               prise: state.uptodate.prise
             },
           });
@@ -119,7 +119,7 @@ export default function SignUp() {
   };
   
   const handleSubmit = () => {
-      console.log(state);
+      console.log(state.uptodate);
     axios
       .post("/api/vapeStore/add", state.uptodate)
       .then((response) => {
@@ -204,6 +204,7 @@ Swal.fire({
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+              type="number"
                 autoComplete="prise"
                 name="prise"
                 variant="outlined"
@@ -218,6 +219,8 @@ Swal.fire({
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
+                type="number"
+
                 required
                 fullWidth
                 id="stock"

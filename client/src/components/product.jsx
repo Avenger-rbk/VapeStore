@@ -37,6 +37,7 @@ export default function MediaCard(props) {
   const classes = useStyles();
   return (
     <div className="card">
+      
       {props.data.map((product, i) => {
         return (
           <div key = {i}>

@@ -151,6 +151,15 @@ export default function PersistentDrawerLeft(props) {
               >
                 Add
               </Button>
+            </ListItemIcon>
+          </ListItem>
+        </List>
+        <Divider />
+
+        <Divider />
+        <List>
+          <ListItem>
+            <ListItemIcon>
               <Button
                 size="small"
                 color="primary"
@@ -158,6 +167,15 @@ export default function PersistentDrawerLeft(props) {
               >
                 Orders
               </Button>
+            </ListItemIcon>
+          </ListItem>
+        </List>
+        <Divider />
+
+        <Divider />
+        <List>
+          <ListItem>
+            <ListItemIcon>
               <Button
                 size="small"
                 color="primary"
@@ -165,23 +183,22 @@ export default function PersistentDrawerLeft(props) {
               >
                 Users
               </Button>
-              
             </ListItemIcon>
-           
           </ListItem>
         </List>
         <Divider />
+
         <List>
-        <Button
-                className="logoutbtn"
-                color="inherit"
-                onClick={() => logout()}
-              >
-                Logout
-              </Button>
+          <Button
+            className="logoutbtn"
+            color="inherit"
+            onClick={() => logout()}
+          >
+            Logout
+          </Button>
         </List>
       </Drawer>
-      
+
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
